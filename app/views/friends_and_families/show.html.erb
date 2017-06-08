@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h3>Friends And Family #<%= @friends_and_family.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>First name</dt>
+      <dd><%= @friends_and_family.first_name %></dd>
+
+      <dt>Last name</dt>
+      <dd><%= @friends_and_family.last_name %></dd>
+
+      <dt>Relationship</dt>
+      <dd><%= @friends_and_family.relationship %></dd>
+
+      <dt>Birthday</dt>
+      <dd><%= @friends_and_family.birthday %></dd>
+
+      <dt>Current city</dt>
+      <dd><%= @friends_and_family.current_city %></dd>
+
+      <dt>Current employer or school</dt>
+      <dd><%= @friends_and_family.current_employer_or_school %></dd>
+
+      <dt>Address</dt>
+      <dd><%= @friends_and_family.address %></dd>
+
+      <dt>Picture</dt>
+      <dd><%= @friends_and_family.picture %></dd>
+
+      <dt>Phone number</dt>
+      <dd><%= @friends_and_family.phone_number %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/friends_and_families" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/friends_and_families/<%= @friends_and_family.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_friends_and_family/<%= @friends_and_family.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+<!-- Validation failure messages -->
+<% if @journal_entry.errors.any? %>
+  <% @journal_entry.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Journal Entry</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_journal_entry" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for date_of_link -->
+      <div class="form-group">
+        <label for="date_of_link" class="control-label">
+          Date of link
+        </label>
+
+        <input type="text" id="date_of_link" name="date_of_link" placeholder="Date of link" class="form-control" value="<%= @journal_entry.date_of_link %>">
+      </div>
+
+      <!-- Label and input for type_of_link -->
+      <div class="form-group">
+        <label for="type_of_link" class="control-label">
+          Type of link
+        </label>
+
+        <input type="text" id="type_of_link" name="type_of_link" placeholder="Type of link" class="form-control" value="<%= @journal_entry.type_of_link %>">
+      </div>
+
+      <!-- Label and input for friend_first_name -->
+      <div class="form-group">
+        <label for="friend_first_name" class="control-label">
+          Friend first name
+        </label>
+
+        <input type="text" id="friend_first_name" name="friend_first_name" placeholder="Friend first name" class="form-control" value="<%= @journal_entry.friend_first_name %>">
+      </div>
+
+      <!-- Label and input for friend_last_name -->
+      <div class="form-group">
+        <label for="friend_last_name" class="control-label">
+          Friend last name
+        </label>
+
+        <input type="text" id="friend_last_name" name="friend_last_name" placeholder="Friend last name" class="form-control" value="<%= @journal_entry.friend_last_name %>">
+      </div>
+
+      <!-- Label and input for reason -->
+      <div class="form-group">
+        <label for="reason" class="control-label">
+          Reason
+        </label>
+
+        <input type="text" id="reason" name="reason" placeholder="Reason" class="form-control" value="<%= @journal_entry.reason %>">
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"><%= @journal_entry.notes %></textarea>
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @journal_entry.user_id %>">
+      </div>
+
+      <!-- Label and input for friend_id -->
+      <div class="form-group">
+        <label for="friend_id" class="control-label">
+          Friend
+        </label>
+
+        <input type="text" id="friend_id" name="friend_id" placeholder="Friend" class="form-control" value="<%= @journal_entry.friend_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Journal Entry
+      </button>
+      or
+      <a href="/journal_entries">Cancel</a>
+    </form>
+  </div>
+</div>
