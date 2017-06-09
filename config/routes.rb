@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   # Root URL for devise
-  root 'friends_and_families#index'
+  root 'journal_entries#home'
+  
+  get "/", :controller => "journal_entries", :action => "home"
 
   # Routes for the Journal_entry resource:
   # CREATE

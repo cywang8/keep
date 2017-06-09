@@ -1,8 +1,8 @@
 <div class="page-header">
   <h1>
-    Journal entries
-    <a href="/journal_entries/new" class="btn btn-lg btn-success">New Journal entry</a>
+    Journal Entries
   </h1>
+    <a href="/journal_entries/new" class="btn btn-primary">Write a new journal entry</a>
 </div>
 
 <div class="row">
@@ -11,12 +11,9 @@
       <tr>
         <th>Date of link</th>
         <th>Type of link</th>
-        <th>Friend first name</th>
-        <th>Friend last name</th>
+        <th>Full name</th>
         <th>Reason</th>
         <th>Notes</th>
-        <th>User</th>
-        <th>Friend</th>
         <th>Actions</th>
       </tr>
 
@@ -24,16 +21,13 @@
       <tr>
         <td><%= journal_entry.date_of_link %></td>
         <td><%= journal_entry.type_of_link %></td>
-        <td><%= journal_entry.friend_first_name %></td>
-        <td><%= journal_entry.friend_last_name %></td>
+        <td><%= journal_entry.friend.name %></td>
         <td><%= journal_entry.reason %></td>
         <td><%= journal_entry.notes %></td>
-        <td><%= journal_entry.user_id %></td>
-        <td><%= journal_entry.friend_id %></td>
         <td>
-          <a href="/journal_entries/<%= journal_entry.id %>" class="btn btn-primary">Show</a>
-          <a href="/journal_entries/<%= journal_entry.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_journal_entry/<%= journal_entry.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/journal_entries/<%= journal_entry.id %>" class="btn btn-xs btn-primary">Show</a>
+          <a href="/journal_entries/<%= journal_entry.id %>/edit" class="btn btn-xs btn-primary">Edit</a>
+          <a href="/delete_journal_entry/<%= journal_entry.id %>" class="btn btn-xs btn-primary" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>

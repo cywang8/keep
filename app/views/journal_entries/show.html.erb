@@ -11,11 +11,8 @@
       <dt>Type of link</dt>
       <dd><%= @journal_entry.type_of_link %></dd>
 
-      <dt>Friend first name</dt>
-      <dd><%= @journal_entry.friend_first_name %></dd>
-
-      <dt>Friend last name</dt>
-      <dd><%= @journal_entry.friend_last_name %></dd>
+      <dt>Full name</dt>
+      <dd><%= @journal_entry.friend.name %></dd>
 
       <dt>Reason</dt>
       <dd><%= @journal_entry.reason %></dd>
@@ -23,17 +20,11 @@
       <dt>Notes</dt>
       <dd><%= @journal_entry.notes %></dd>
 
-      <dt>User</dt>
-      <dd><%= @journal_entry.user_id %></dd>
-
-      <dt>Friend</dt>
-      <dd><%= @journal_entry.friend_id %></dd>
-
     </dl>
 
     <div class="btn-group btn-group-justified">
       <a href="/journal_entries" class="btn btn-primary">
-        Back
+        Back to Journal
       </a>
       <a href="/journal_entries/<%= @journal_entry.id %>/edit" class="btn btn-warning">
         Edit

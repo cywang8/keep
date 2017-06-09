@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Add Friends And Family</h3>
+  <h3>Add a friend or family member!</h3>
 </div>
 
 <div class="row">
@@ -18,22 +18,13 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for first_name -->
+      <!-- Label and input for name -->
       <div class="form-group">
-        <label for="first_name" class="control-label">
-          First name
+        <label for="name" class="control-label">
+          Full name (first & last)
         </label>
 
-        <input type="text" id="first_name" name="first_name" placeholder="First name" class="form-control" value="<%= @friends_and_family.first_name %>">
-      </div>
-
-      <!-- Label and input for last_name -->
-      <div class="form-group">
-        <label for="last_name" class="control-label">
-          Last name
-        </label>
-
-        <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="<%= @friends_and_family.last_name %>">
+        <input type="text" id="name" name="name" placeholder="First name & Last name" class="form-control" value="<%= @friends_and_family.name %>">
       </div>
 
       <!-- Label and input for relationship -->
@@ -41,8 +32,22 @@
         <label for="relationship" class="control-label">
           Relationship
         </label>
-
-        <input type="text" id="relationship" name="relationship" placeholder="Relationship" class="form-control" value="<%= @friends_and_family.relationship %>">
+        
+        <select type="text" id="relationship" name="relationship" placeholder="Relationship" class="form-control" value="<%= @friends_and_family.relationship %>">
+          <option>Select a relationship</option>
+          <option>Friend - pre-college</option>
+          <option>Friend - college</option>
+          <option>Friend - work</option>
+          <option>Friend - graduate school</option>
+          <option>Friend - other friends</option>
+          <option>Friend - somewhere else</option>
+          <option>Family - parent</option>
+          <option>Family - sibling</option>
+          <option>Family - aunt or uncle</option>
+          <option>Family - cousin</option>
+          <option>Family - niece or nephew</option>
+          <option>Family - grandparent</option>
+        </select>
       </div>
 
       <!-- Label and input for birthday -->
@@ -51,16 +56,7 @@
           Birthday
         </label>
 
-        <input type="text" id="birthday" name="birthday" placeholder="Birthday" class="form-control" value="<%= @friends_and_family.birthday %>">
-      </div>
-
-      <!-- Label and input for current_city -->
-      <div class="form-group">
-        <label for="current_city" class="control-label">
-          Current city
-        </label>
-
-        <input type="text" id="current_city" name="current_city" placeholder="Current city" class="form-control" value="<%= @friends_and_family.current_city %>">
+        <input type="date" id="birthday" name="birthday" placeholder="Birthday" class="form-control" value="<%= @friends_and_family.birthday %>">
       </div>
 
       <!-- Label and input for current_employer_or_school -->
@@ -75,19 +71,10 @@
       <!-- Label and input for address -->
       <div class="form-group">
         <label for="address" class="control-label">
-          Address
+          Address (street, unit #, city, state, zip code)
         </label>
 
         <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @friends_and_family.address %>">
-      </div>
-
-      <!-- Label and input for picture -->
-      <div class="form-group">
-        <label for="picture" class="control-label">
-          Picture
-        </label>
-
-        <input type="text" id="picture" name="picture" placeholder="Picture" class="form-control" value="<%= @friends_and_family.picture %>">
       </div>
 
       <!-- Label and input for phone_number -->
@@ -96,10 +83,19 @@
           Phone number
         </label>
 
-        <input type="text" id="phone_number" name="phone_number" placeholder="Phone number" class="form-control" value="<%= @friends_and_family.phone_number %>">
+        <input type="tel" id="phone_number" name="phone_number" placeholder="Phone number" class="form-control" value="<%= @friends_and_family.phone_number %>">
+      </div>
+      
+      <!-- Label and input for phone_number -->
+      <div class="form-group">
+        <label for="email" class="control-label">
+          Email
+        </label>
+
+        <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= @friends_and_family.email %>">
       </div>
 
-      <button class="btn btn-success">
+      <button class="btn btn-primary">
         Create Friends And Family
       </button>
       or

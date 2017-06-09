@@ -10,6 +10,10 @@ class FriendsAndFamiliesController < ApplicationController
 
     render("friends_and_families/show.html.erb")
   end
+    
+  def home
+    render("friends_and_families/home.html.erb")
+  end
 
   def new
     @friends_and_family = FriendsAndFamily.new
@@ -20,15 +24,13 @@ class FriendsAndFamiliesController < ApplicationController
   def create
     @friends_and_family = FriendsAndFamily.new
 
-    @friends_and_family.first_name = params[:first_name]
-    @friends_and_family.last_name = params[:last_name]
+    @friends_and_family.name = params[:name]
     @friends_and_family.relationship = params[:relationship]
     @friends_and_family.birthday = params[:birthday]
-    @friends_and_family.current_city = params[:current_city]
     @friends_and_family.current_employer_or_school = params[:current_employer_or_school]
     @friends_and_family.address = params[:address]
-    @friends_and_family.picture = params[:picture]
     @friends_and_family.phone_number = params[:phone_number]
+    @friends_and_family.email = params[:email]
 
     save_status = @friends_and_family.save
 
@@ -48,15 +50,13 @@ class FriendsAndFamiliesController < ApplicationController
   def update
     @friends_and_family = FriendsAndFamily.find(params[:id])
 
-    @friends_and_family.first_name = params[:first_name]
-    @friends_and_family.last_name = params[:last_name]
+    @friends_and_family.name = params[:name]
     @friends_and_family.relationship = params[:relationship]
     @friends_and_family.birthday = params[:birthday]
-    @friends_and_family.current_city = params[:current_city]
     @friends_and_family.current_employer_or_school = params[:current_employer_or_school]
     @friends_and_family.address = params[:address]
-    @friends_and_family.picture = params[:picture]
     @friends_and_family.phone_number = params[:phone_number]
+    @friends_and_family.email = params[:email]
 
     save_status = @friends_and_family.save
 

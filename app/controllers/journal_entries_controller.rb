@@ -16,14 +16,20 @@ class JournalEntriesController < ApplicationController
 
     render("journal_entries/new.html.erb")
   end
+  
+   def home
+    @journal_entries = JournalEntry.all
+    @journal_entry = JournalEntry.new
+    
+    render("journal_entries/home.html.erb")
+  end
 
   def create
     @journal_entry = JournalEntry.new
 
     @journal_entry.date_of_link = params[:date_of_link]
     @journal_entry.type_of_link = params[:type_of_link]
-    @journal_entry.friend_first_name = params[:friend_first_name]
-    @journal_entry.friend_last_name = params[:friend_last_name]
+    @journal_entry.full_name = params[:full_name]
     @journal_entry.reason = params[:reason]
     @journal_entry.notes = params[:notes]
     @journal_entry.user_id = params[:user_id]
@@ -49,8 +55,7 @@ class JournalEntriesController < ApplicationController
 
     @journal_entry.date_of_link = params[:date_of_link]
     @journal_entry.type_of_link = params[:type_of_link]
-    @journal_entry.friend_first_name = params[:friend_first_name]
-    @journal_entry.friend_last_name = params[:friend_last_name]
+    @journal_entry.full_name = params[:full_name]
     @journal_entry.reason = params[:reason]
     @journal_entry.notes = params[:notes]
     @journal_entry.user_id = params[:user_id]

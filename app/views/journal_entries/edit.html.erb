@@ -36,22 +36,13 @@
         <input type="text" id="type_of_link" name="type_of_link" placeholder="Type of link" class="form-control" value="<%= @journal_entry.type_of_link %>">
       </div>
 
-      <!-- Label and input for friend_first_name -->
+      <!-- Label and input for full_name -->
       <div class="form-group">
-        <label for="friend_first_name" class="control-label">
-          Friend first name
+        <label for="full_name" class="control-label">
+          Full name
         </label>
 
-        <input type="text" id="friend_first_name" name="friend_first_name" placeholder="Friend first name" class="form-control" value="<%= @journal_entry.friend_first_name %>">
-      </div>
-
-      <!-- Label and input for friend_last_name -->
-      <div class="form-group">
-        <label for="friend_last_name" class="control-label">
-          Friend last name
-        </label>
-
-        <input type="text" id="friend_last_name" name="friend_last_name" placeholder="Friend last name" class="form-control" value="<%= @journal_entry.friend_last_name %>">
+        <%= select_tag("friend_id", options_from_collection_for_select(FriendsAndFamily.all, :id, :name, @journal_entry.friend_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for reason -->
@@ -74,27 +65,14 @@
 
       <!-- Label and input for user_id -->
       <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @journal_entry.user_id %>">
+        <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id%>">
       </div>
 
-      <!-- Label and input for friend_id -->
-      <div class="form-group">
-        <label for="friend_id" class="control-label">
-          Friend
-        </label>
-
-        <input type="text" id="friend_id" name="friend_id" placeholder="Friend" class="form-control" value="<%= @journal_entry.friend_id %>">
-      </div>
-
-      <button class="btn btn-warning">
+      <button class="btn btn-primary">
         Update Journal Entry
       </button>
       or
-      <a href="/journal_entries/<%= @journal_entry.id %>">Cancel</a>
+      <a href="/journal_entries">Cancel</a>
     </form>
   </div>
 </div>
